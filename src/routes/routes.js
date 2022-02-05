@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const { getAllRadicados, getRadicadosByUserId, createRadicado, updateRadicado } = require("../controller/radicados.controller")
 const { getAllReclamos, getReclamosByRadicadoId, createReclamo, updateReclamo } = require("../controller/reclamos.controller")
+const { getAllUsers } = require("../controller/usuarios.controller")
 const router = Router()
 
 
@@ -14,18 +15,20 @@ router.get('/', async (req,res) => {
 */
 
 
-// Configuración end point radicados de quejas y peticiones
+// Configuración end points radicados de quejas y peticiones
 router.get('/radicados', getAllRadicados)
 router.get('/radicados/:userId', getRadicadosByUserId)
 router.post('/radicados', createRadicado)
 router.put('/radicados/:id', updateRadicado)
 
 
-// Configuración end point de reclamos
+// Configuración end points de reclamos
 router.get('/reclamos', getAllReclamos)
 router.get('/Reclamos/:radicadoId', getReclamosByRadicadoId)
 router.post('/Reclamos', createReclamo)
 router.put('/Reclamos/:id', updateReclamo)
 
+// Configuración end point de usuario
+router.get('/usuarios', getAllUsers)
 
 module.exports = router
