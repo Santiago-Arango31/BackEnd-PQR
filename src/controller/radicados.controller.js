@@ -21,7 +21,7 @@ const getRadicadosByUserId = async (req, res, next) => {
     try {
         const result = await pool.query("SELECT * FROM RadicadosPQ WHERE id_usuario = ($1)",[userId])
         if (result.rows.length > 0) {
-            return res.status(200).json(result.rows[0])
+            return res.status(200).json(result.rows)
         } else {
             return res.status(404).json( {message : "Radicado no encontrado "} )
         }
